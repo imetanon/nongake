@@ -2,147 +2,153 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>My LIFF App</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>My LIFF App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </style>
 </head>
 
 <body>
-  <button type="button" class="btn btn-primary" id="btnShare" onclick="sendShare()">Share - PromptPay QR</button>
-  <!-- <button id="btnLogin" onclick="liff.login()">Log In</button>
+    <button type="button" class="btn btn-primary" id="btnShare" onclick="sendShare()">Share - PromptPay QR</button>
+    <!-- <button id="btnLogin" onclick="liff.login()">Log In</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button> -->
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script>
-    async function sendShare() {
-      const result = await liff.shareTargetPicker([
-        {
-          "type": "flex",
-          "altText": "Promptpay QR by NongAke",
-          "contents": {
-            "type": "bubble",
-            "header": {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script>
+        async function sendShare() {
+            let response = await fetch('https://script.google.com/macros/s/AKfycbzhEL_GvI_z0N1RfnNS8Mk1s-rQ2ApOlhW1dZJo7mtFfrVxRi4_y06RlpFRjaSyO_Mf/exec?pid=1909800632140&amt=0');
+            let data = await response.json();
+            const result = await liff.shareTargetPicker([
                 {
-                  "type": "image",
-                  "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png",
-                  "offsetTop": "-8px"
+                    "type": "flex",
+                    "altText": "Promptpay QR by NongAke",
+                    "contents": {
+                        "type": "bubble",
+                        "header": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "image",
+                                    "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png",
+                                    "offsetTop": "-8px"
+                                }
+                            ],
+                            "paddingAll": "0px",
+                            "maxHeight": "80px"
+                        },
+                        "body": {
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "image",
+                                            "url": `https://chart.googleapis.com/chart?cht=qr&chl=${data['qrstring']}&chs=250x250&choe=UTF-8`,
+                                            "size": "4xl"
+                                        }
+                                    ],
+                                    "margin": "30px"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "image",
+                                            "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png",
+                                            "size": "lg",
+                                            "aspectRatio": "16:9"
+                                        }
+                                    ],
+                                    "position": "absolute",
+                                    "offsetStart": "0px",
+                                    "offsetEnd": "0px",
+                                    "offsetTop": "0px"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": "1909800632140",
+                                            "align": "center",
+                                            "color": "#143464",
+                                            "weight": "bold"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "separator",
+                                    "margin": "xxl"
+                                },
+                                {
+                                    "contents": [
+                                        {
+                                            "color": "#aaaaaa",
+                                            "flex": 0,
+                                            "size": "xs",
+                                            "text": "NONG-AKE ",
+                                            "type": "text"
+                                        }
+                                    ],
+                                    "justifyContent": "center",
+                                    "layout": "horizontal",
+                                    "margin": "md",
+                                    "type": "box"
+                                }
+                            ],
+                            "layout": "vertical",
+                            "type": "box"
+                        },
+                        "styles": {
+                            "header": {
+                                "backgroundColor": "#143464"
+                            }
+                        }
+                    }
                 }
-              ],
-              "paddingAll": "0px",
-              "maxHeight": "80px"
-            },
-            "body": {
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "image",
-                      "url": "https://chart.googleapis.com/chart?cht=qr&chl=00020101021129370016A000000677010111021319098006321405303764540105802TH6304B7D1&chs=250x250&choe=UTF-8",
-                      "size": "4xl"
-                    }
-                  ],
-                  "margin": "30px"
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "image",
-                      "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png",
-                      "size": "lg",
-                      "aspectRatio": "16:9"
-                    }
-                  ],
-                  "position": "absolute",
-                  "offsetStart": "0px",
-                  "offsetEnd": "0px",
-                  "offsetTop": "0px"
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "1909800632140",
-                      "align": "center",
-                      "color": "#143464",
-                      "weight": "bold"
-                    }
-                  ]
-                },
-                {
-                  "type": "separator",
-                  "margin": "xxl"
-                },
-                {
-                  "contents": [
-                    {
-                      "color": "#aaaaaa",
-                      "flex": 0,
-                      "size": "xs",
-                      "text": "NONG-AKE ",
-                      "type": "text"
-                    }
-                  ],
-                  "justifyContent": "center",
-                  "layout": "horizontal",
-                  "margin": "md",
-                  "type": "box"
+            ])
+            if (result) {
+                alert(`[${result.status}] Message sent!`)
+            } else {
+                const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
+
+                if (minorVer === undefined) {
+                    alert('ShareTargetPicker was canceled in external browser')
+                    return
                 }
-              ],
-              "layout": "vertical",
-              "type": "box"
-            },
-            "styles": {
-              "header": {
-                "backgroundColor": "#143464"
-              }
+
+                if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+                    alert('ShareTargetPicker was canceled in LINE app')
+                }
             }
-          }
         }
-      ])
-      if (result) {
-        alert(`[${result.status}] Message sent!`)
-      } else {
-        const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
-
-        if (minorVer === undefined) {
-          alert('ShareTargetPicker was canceled in external browser')
-          return
+        function logOut() {
+            liff.logout()
+            window.location.reload()
         }
-
-        if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
-          alert('ShareTargetPicker was canceled in LINE app')
+        async function main() {
+            await liff.init({ liffId: "1657038837-ekEmavNw" })
+            if (liff.isLoggedIn()) {
+                document.getElementById("btnShare").style.display = "block"
+                if (!liff.isInClient()) {
+                    document.getElementById("btnLogOut").style.display = "block"
+                }
+            } else {
+                document.getElementById("btnLogin").style.display = "block"
+            }
         }
-      }
-    }
-    function logOut() {
-      liff.logout()
-      window.location.reload()
-    }
-    async function main() {
-      await liff.init({ liffId: "1657038837-ekEmavNw" })
-      if (liff.isLoggedIn()) {
-        document.getElementById("btnShare").style.display = "block"
-        if (!liff.isInClient()) {
-          document.getElementById("btnLogOut").style.display = "block"
-        }
-      } else {
-        document.getElementById("btnLogin").style.display = "block"
-      }
-    }
-    main()
-  </script>
+        main()
+    </script>
 </body>
 
 </html>
