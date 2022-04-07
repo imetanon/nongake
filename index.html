@@ -22,7 +22,14 @@
         crossorigin="anonymous"></script>
     <script>
         async function sendShare() {
-            let response = await fetch('https://script.google.com/macros/s/AKfycbzhEL_GvI_z0N1RfnNS8Mk1s-rQ2ApOlhW1dZJo7mtFfrVxRi4_y06RlpFRjaSyO_Mf/exec?pid=1909800632140&amt=0');
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            let pid = urlParams.get('pid');
+            let amt = urlParams.get('amt');
+            if(!amt){
+                amt = 0;
+            }
+            let response = await fetch(`https://script.google.com/macros/s/AKfycbzhEL_GvI_z0N1RfnNS8Mk1s-rQ2ApOlhW1dZJo7mtFfrVxRi4_y06RlpFRjaSyO_Mf/exec?pid=${pid}&amt=${amt}`);
             let data = await response.json();
             const result = await liff.shareTargetPicker([
                 {
