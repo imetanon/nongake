@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF App</title>
   <style>
-    body { padding: 256px }
-    button { display: none; width: 50%; padding: 16px 0; margin: 16px auto }
+    body {
+      padding: 256px
+    }
+
+    button {
+      display: none;
+      width: 50%;
+      padding: 16px 0;
+      margin: 16px auto
+    }
   </style>
 </head>
+
 <body>
   <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
   <button id="btnLogin" onclick="liff.login()">Log In</button>
@@ -19,99 +29,92 @@
       const result = await liff.shareTargetPicker([
         {
           "type": "flex",
-          "altText": "Flex Message",
+          "altText": "Promptpay QR by NongAke",
           "contents": {
             "type": "bubble",
-            "body": {
+            "header": {
               "type": "box",
               "layout": "vertical",
-              "spacing": "md",
               "contents": [
                 {
-                  "type": "text",
-                  "text": "BROWN'S ADVENTURE",
-                  "size": "xl",
-                  "gravity": "center",
-                  "weight": "bold",
-                  "wrap": true
+                  "type": "image",
+                  "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png",
+                  "offsetTop": "-8px"
+                }
+              ],
+              "paddingAll": "0px",
+              "maxHeight": "80px"
+            },
+            "body": {
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "image",
+                      "url": "https://chart.googleapis.com/chart?cht=qr&chl=00020101021129370016A000000677010111021319098006321405303764540105802TH6304B7D1&chs=250x250&choe=UTF-8",
+                      "size": "4xl"
+                    }
+                  ],
+                  "margin": "30px"
                 },
                 {
                   "type": "box",
                   "layout": "vertical",
-                  "spacing": "sm",
-                  "margin": "lg",
                   "contents": [
                     {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Date",
-                          "flex": 1,
-                          "size": "sm",
-                          "color": "#AAAAAA"
-                        },
-                        {
-                          "type": "text",
-                          "text": "Monday 25, 9:00PM",
-                          "flex": 4,
-                          "size": "sm",
-                          "color": "#666666",
-                          "wrap": true
-                        }
-                      ]
-                    },
+                      "type": "image",
+                      "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png",
+                      "size": "lg",
+                      "aspectRatio": "16:9"
+                    }
+                  ],
+                  "position": "absolute",
+                  "offsetStart": "0px",
+                  "offsetEnd": "0px",
+                  "offsetTop": "0px"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
                     {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Place",
-                          "flex": 1,
-                          "size": "sm",
-                          "color": "#AAAAAA"
-                        },
-                        {
-                          "type": "text",
-                          "text": "LINE Thailand",
-                          "flex": 4,
-                          "size": "sm",
-                          "color": "#666666",
-                          "wrap": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "vertical",
-                      "margin": "xxl",
-                      "contents": [
-                        {
-                          "type": "spacer"
-                        },
-                        {
-                          "type": "image",
-                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png",
-                          "size": "xl",
-                          "aspectMode": "cover"
-                        },
-                        {
-                          "type": "text",
-                          "text": "You can enter the theater by using this code instead of a ticket",
-                          "margin": "xxl",
-                          "size": "xs",
-                          "color": "#AAAAAA",
-                          "wrap": true
-                        }
-                      ]
+                      "type": "text",
+                      "text": "1909800632140",
+                      "align": "center",
+                      "color": "#143464",
+                      "weight": "bold"
                     }
                   ]
+                },
+                {
+                  "type": "separator",
+                  "margin": "xxl"
+                },
+                {
+                  "contents": [
+                    {
+                      "color": "#aaaaaa",
+                      "flex": 0,
+                      "size": "xs",
+                      "text": "NONG-AKE ",
+                      "type": "text"
+                    }
+                  ],
+                  "justifyContent": "center",
+                  "layout": "horizontal",
+                  "margin": "md",
+                  "type": "box"
                 }
-              ]
+              ],
+              "layout": "vertical",
+              "type": "box"
+            },
+            "styles": {
+              "header": {
+                "backgroundColor": "#143464"
+              }
             }
           }
         }
@@ -149,4 +152,5 @@
     main()
   </script>
 </body>
+
 </html>
