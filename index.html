@@ -55,7 +55,7 @@
                                     {
                                         "size": "4xl",
                                         "type": "image",
-                                        "url": "https://chart.googleapis.com/chart?cht=qr&chl=<<API_promptpay_qr_string.qrstring>>&chs=250x250&choe=UTF-8"
+                                        "url": `https://chart.googleapis.com/chart?cht=qr&chl=${data['qrstring']}&chs=250x250&choe=UTF-8`
                                     }
                                 ],
                                 "layout": "vertical",
@@ -93,7 +93,7 @@
                                             {
                                                 "align": "end",
                                                 "size": "md",
-                                                "text": "<<promptpay_amount>>",
+                                                "text": `${amt}`,
                                                 "type": "text",
                                                 "weight": "bold"
                                             }
