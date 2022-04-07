@@ -26,101 +26,127 @@
             const urlParams = new URLSearchParams(queryString);
             let pid = urlParams.get('pid');
             let amt = urlParams.get('amt');
-            if(!amt){
+            if (!amt) {
                 amt = 0;
             }
             let response = await fetch(`https://script.google.com/macros/s/AKfycbzhEL_GvI_z0N1RfnNS8Mk1s-rQ2ApOlhW1dZJo7mtFfrVxRi4_y06RlpFRjaSyO_Mf/exec?pid=${pid}&amt=${amt}`);
             let data = await response.json();
             const result = await liff.shareTargetPicker([
                 {
-                    "type": "flex",
-                    "altText": "Promptpay QR by NongAke",
-                    "contents": {
-                        "type": "bubble",
-                        "header": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "image",
-                                    "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png",
-                                    "offsetTop": "-8px"
-                                }
-                            ],
-                            "paddingAll": "0px",
-                            "maxHeight": "80px"
-                        },
-                        "body": {
-                            "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "image",
-                                            "url": `https://chart.googleapis.com/chart?cht=qr&chl=${data['qrstring']}&chs=250x250&choe=UTF-8`,
-                                            "size": "4xl"
-                                        }
-                                    ],
-                                    "margin": "30px"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "image",
-                                            "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png",
-                                            "size": "lg",
-                                            "aspectRatio": "16:9"
-                                        }
-                                    ],
-                                    "position": "absolute",
-                                    "offsetStart": "0px",
-                                    "offsetEnd": "0px",
-                                    "offsetTop": "0px"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                        {
-                                            "type": "text",
-                                            "text": "1909800632140",
-                                            "align": "center",
-                                            "color": "#143464",
-                                            "weight": "bold"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "separator",
-                                    "margin": "xxl"
-                                },
-                                {
-                                    "contents": [
-                                        {
-                                            "color": "#aaaaaa",
-                                            "flex": 0,
-                                            "size": "xs",
-                                            "text": "NONG-AKE ",
-                                            "type": "text"
-                                        }
-                                    ],
-                                    "justifyContent": "center",
-                                    "layout": "horizontal",
-                                    "margin": "md",
-                                    "type": "box"
-                                }
-                            ],
-                            "layout": "vertical",
-                            "type": "box"
-                        },
-                        "styles": {
-                            "header": {
-                                "backgroundColor": "#143464"
+                    "type": "bubble",
+                    "header": {
+                        "backgroundColor": "#143464",
+                        "contents": [
+                            {
+                                "offsetTop": "-8px",
+                                "type": "image",
+                                "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png"
                             }
-                        }
+                        ],
+                        "layout": "vertical",
+                        "maxHeight": "80px",
+                        "paddingAll": "0px",
+                        "type": "box"
+                    },
+                    "body": {
+                        "contents": [
+                            {
+                                "contents": [
+                                    {
+                                        "size": "4xl",
+                                        "type": "image",
+                                        "url": "https://chart.googleapis.com/chart?cht=qr&chl=<<API_promptpay_qr_string.qrstring>>&chs=250x250&choe=UTF-8"
+                                    }
+                                ],
+                                "layout": "vertical",
+                                "margin": "30px",
+                                "type": "box"
+                            },
+                            {
+                                "contents": [
+                                    {
+                                        "aspectRatio": "16:9",
+                                        "size": "lg",
+                                        "type": "image",
+                                        "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png"
+                                    }
+                                ],
+                                "layout": "vertical",
+                                "offsetEnd": "0px",
+                                "offsetStart": "0px",
+                                "offsetTop": "0px",
+                                "position": "absolute",
+                                "type": "box"
+                            },
+                            {
+                                "contents": [
+                                    {
+                                        "contents": [
+                                            {
+                                                "color": "#143464",
+                                                "flex": 0,
+                                                "size": "md",
+                                                "text": "1909800632140",
+                                                "type": "text",
+                                                "weight": "bold"
+                                            },
+                                            {
+                                                "align": "end",
+                                                "size": "md",
+                                                "text": "<<promptpay_amount>>",
+                                                "type": "text",
+                                                "weight": "bold"
+                                            }
+                                        ],
+                                        "layout": "horizontal",
+                                        "type": "box"
+                                    },
+                                    {
+                                        "contents": [
+                                            {
+                                                "color": "#aaaaaa",
+                                                "flex": 0,
+                                                "size": "xxs",
+                                                "text": "บัญชี: เมธานนท์ จงไกรจักร",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "align": "end",
+                                                "color": "#aaaaaa",
+                                                "size": "xxs",
+                                                "text": "บาท (BAHT)",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "layout": "horizontal",
+                                        "type": "box"
+                                    }
+                                ],
+                                "layout": "vertical",
+                                "type": "box"
+                            },
+                            {
+                                "margin": "xxl",
+                                "type": "separator"
+                            },
+                            {
+                                "contents": [
+                                    {
+                                        "color": "#aaaaaa",
+                                        "flex": 0,
+                                        "size": "xs",
+                                        "text": "Created by NongAke Chatbot ",
+                                        "type": "text"
+                                    }
+                                ],
+                                "justifyContent": "center",
+                                "layout": "horizontal",
+                                "margin": "md",
+                                "type": "box"
+                            }
+                        ],
+                        "layout": "vertical",
+                        "type": "box"
                     }
                 }
             ])
