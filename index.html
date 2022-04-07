@@ -33,120 +33,124 @@
             let data = await response.json();
             const result = await liff.shareTargetPicker([
                 {
-                    "type": "bubble",
-                    "header": {
-                        "backgroundColor": "#143464",
-                        "contents": [
-                            {
-                                "offsetTop": "-8px",
-                                "type": "image",
-                                "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png"
-                            }
-                        ],
-                        "layout": "vertical",
-                        "maxHeight": "80px",
-                        "paddingAll": "0px",
-                        "type": "box"
-                    },
-                    "body": {
-                        "contents": [
-                            {
-                                "contents": [
-                                    {
-                                        "size": "4xl",
-                                        "type": "image",
-                                        "url": `https://chart.googleapis.com/chart?cht=qr&chl=${data['qrstring']}&chs=250x250&choe=UTF-8`
-                                    }
-                                ],
-                                "layout": "vertical",
-                                "margin": "30px",
-                                "type": "box"
-                            },
-                            {
-                                "contents": [
-                                    {
-                                        "aspectRatio": "16:9",
-                                        "size": "lg",
-                                        "type": "image",
-                                        "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png"
-                                    }
-                                ],
-                                "layout": "vertical",
-                                "offsetEnd": "0px",
-                                "offsetStart": "0px",
-                                "offsetTop": "0px",
-                                "position": "absolute",
-                                "type": "box"
-                            },
-                            {
-                                "contents": [
-                                    {
-                                        "contents": [
-                                            {
-                                                "color": "#143464",
-                                                "flex": 0,
-                                                "size": "md",
-                                                "text": "1909800632140",
-                                                "type": "text",
-                                                "weight": "bold"
-                                            },
-                                            {
-                                                "align": "end",
-                                                "size": "md",
-                                                "text": `${amt}`,
-                                                "type": "text",
-                                                "weight": "bold"
-                                            }
-                                        ],
-                                        "layout": "horizontal",
-                                        "type": "box"
-                                    },
-                                    {
-                                        "contents": [
-                                            {
-                                                "color": "#aaaaaa",
-                                                "flex": 0,
-                                                "size": "xxs",
-                                                "text": "บัญชี: เมธานนท์ จงไกรจักร",
-                                                "type": "text"
-                                            },
-                                            {
-                                                "align": "end",
-                                                "color": "#aaaaaa",
-                                                "size": "xxs",
-                                                "text": "บาท (BAHT)",
-                                                "type": "text"
-                                            }
-                                        ],
-                                        "layout": "horizontal",
-                                        "type": "box"
-                                    }
-                                ],
-                                "layout": "vertical",
-                                "type": "box"
-                            },
-                            {
-                                "margin": "xxl",
-                                "type": "separator"
-                            },
-                            {
-                                "contents": [
-                                    {
-                                        "color": "#aaaaaa",
-                                        "flex": 0,
-                                        "size": "xs",
-                                        "text": "Created by NongAke Chatbot ",
-                                        "type": "text"
-                                    }
-                                ],
-                                "justifyContent": "center",
-                                "layout": "horizontal",
-                                "margin": "md",
-                                "type": "box"
-                            }
-                        ],
-                        "layout": "vertical",
-                        "type": "box"
+                    "type": "flex",
+                    "altText": "Promptpay QR by NongAke",
+                    "contents": {
+                        "type": "bubble",
+                        "header": {
+                            "backgroundColor": "#143464",
+                            "contents": [
+                                {
+                                    "offsetTop": "-8px",
+                                    "type": "image",
+                                    "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/b04c08d1-740e-47e8-94e8-dcb54d73a5b7.png"
+                                }
+                            ],
+                            "layout": "vertical",
+                            "maxHeight": "80px",
+                            "paddingAll": "0px",
+                            "type": "box"
+                        },
+                        "body": {
+                            "contents": [
+                                {
+                                    "contents": [
+                                        {
+                                            "size": "4xl",
+                                            "type": "image",
+                                            "url": `https://chart.googleapis.com/chart?cht=qr&chl=${data['qrstring']}&chs=250x250&choe=UTF-8`
+                                        }
+                                    ],
+                                    "layout": "vertical",
+                                    "margin": "30px",
+                                    "type": "box"
+                                },
+                                {
+                                    "contents": [
+                                        {
+                                            "aspectRatio": "16:9",
+                                            "size": "lg",
+                                            "type": "image",
+                                            "url": "https://bn-sme-production.s3.amazonaws.com/624daacdd32bebb3d583939a/8279fa1d-d269-47aa-884b-40e94d8637a9.png"
+                                        }
+                                    ],
+                                    "layout": "vertical",
+                                    "offsetEnd": "0px",
+                                    "offsetStart": "0px",
+                                    "offsetTop": "0px",
+                                    "position": "absolute",
+                                    "type": "box"
+                                },
+                                {
+                                    "contents": [
+                                        {
+                                            "contents": [
+                                                {
+                                                    "color": "#143464",
+                                                    "flex": 0,
+                                                    "size": "md",
+                                                    "text": "1909800632140",
+                                                    "type": "text",
+                                                    "weight": "bold"
+                                                },
+                                                {
+                                                    "align": "end",
+                                                    "size": "md",
+                                                    "text": `${amt}`,
+                                                    "type": "text",
+                                                    "weight": "bold"
+                                                }
+                                            ],
+                                            "layout": "horizontal",
+                                            "type": "box"
+                                        },
+                                        {
+                                            "contents": [
+                                                {
+                                                    "color": "#aaaaaa",
+                                                    "flex": 0,
+                                                    "size": "xxs",
+                                                    "text": "บัญชี: เมธานนท์ จงไกรจักร",
+                                                    "type": "text"
+                                                },
+                                                {
+                                                    "align": "end",
+                                                    "color": "#aaaaaa",
+                                                    "size": "xxs",
+                                                    "text": "บาท (BAHT)",
+                                                    "type": "text"
+                                                }
+                                            ],
+                                            "layout": "horizontal",
+                                            "type": "box"
+                                        }
+                                    ],
+                                    "layout": "vertical",
+                                    "type": "box"
+                                },
+                                {
+                                    "margin": "xxl",
+                                    "type": "separator"
+                                },
+                                {
+                                    "contents": [
+                                        {
+                                            "color": "#aaaaaa",
+                                            "flex": 0,
+                                            "size": "xs",
+                                            "text": "Created by NongAke Chatbot ",
+                                            "type": "text"
+                                        }
+                                    ],
+                                    "justifyContent": "center",
+                                    "layout": "horizontal",
+                                    "margin": "md",
+                                    "type": "box"
+                                }
+                            ],
+                            "layout": "vertical",
+                            "type": "box"
+                        }
                     }
                 }
             ])
